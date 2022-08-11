@@ -50,7 +50,7 @@ mongoose
   })
   //Iteration 4 
   .then(() => {
-    return Recipe.updateOne({title: "Rigatoni alla Genovese"}, {duration: 100})
+    return Recipe.findOneAndUpdate({title: "Rigatoni alla Genovese"}, {duration: 100}, {new: true})
       .then(() => console.log('Updated recipe'))
       .catch((err) => console.log(err));
   })
