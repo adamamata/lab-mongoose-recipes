@@ -60,14 +60,13 @@ mongoose
       .then(() => console.log('Recipe deleted'))
       .catch((err) => console.log(err));
   })
+  //Iteration 6
+  .then(() => {
+    mongoose.connection.close(() => {
+      console.log(`Mongo connection disconnected`);
+      process.exit(0);
+    });
+  })
   .catch(error => {
     console.error('Error connecting to the database', error);
   });
-
-//Iteration 6
-process.on("SIGINT", () => {
-  mongoose.connection.close(() => {
-    console.log(`Mongo connection disconnected`);
-    process.exit(0);
-  });
-});
